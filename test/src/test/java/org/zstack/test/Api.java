@@ -1599,6 +1599,19 @@ public class Api implements CloudBusEventListener {
         return evt.getInventory();
     }
 
+    public VmAccountPreference changeVmPassword(VmAccountPreference account)
+            throws ApiSenderException{
+        APIChangeVMPasswordMsg msg = new APIChangeVMPasswordMsg();
+        msg.setSession(adminSession);
+        msg.setVmInstanceUuid(account.getVmUuid());
+        msg.setVmAccountName(account.getUserAccount());
+        msg.setVmAccountPassword(account.getAccountPassword());
+        ApiSender sender = new ApiSender();
+        sender.setTimeout(timeout);
+        APIChangeVMPasswordEvent evt = sender.send(msg, APIChangeVMPasswordEvent.class);
+        return new VmAccountPreference(evt.getVmUuid(),evt.getUserAccount(),evt.getAccountPassword());
+    }
+
     public VmInstanceInventory rebootVmInstance(String uuid) throws ApiSenderException {
         return rebootVmInstance(uuid, null);
     }

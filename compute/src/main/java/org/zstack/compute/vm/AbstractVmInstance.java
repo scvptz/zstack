@@ -40,6 +40,7 @@ public abstract class AbstractVmInstance implements VmInstance {
                 APIAttachL3NetworkToVmMsg.class.getName(),
                 GetVmMigrationTargetHostMsg.class.getName(),
                 APIChangeInstanceOfferingMsg.class.getName(),
+                APIChangeVMPasswordMsg.class.getName(),
                 APIGetVmMigrationCandidateHostsMsg.class.getName(),
                 APIDetachL3NetworkFromVmMsg.class.getName(),
                 DetachNicFromVmMsg.class.getName(),

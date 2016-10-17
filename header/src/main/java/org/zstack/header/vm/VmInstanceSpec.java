@@ -179,7 +179,11 @@ public class VmInstanceSpec implements Serializable {
     private boolean gcOnStopFailure;
     private String consolePassword;
     private boolean instanceOfferingOnliechange;
+    private VmAccountPreference accountPreference;
 
+    public VmAccountPreference getAccountPreference() { return accountPreference; }
+
+    public void setAccountPreference(VmAccountPreference accountPreference) { this.accountPreference = accountPreference; }
 
     public String getRequiredClusterUuid() {
         return requiredClusterUuid;
